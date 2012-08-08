@@ -11,11 +11,8 @@ describe('the AntsMarching object\'s', function() {
     });
   });
   describe('march function', function() {
-    beforeEach(function() {
-      var target = document.createElement('div');
-      target.setAttribute('id', 'target');
-      document.body.appendChild(target);
-    });
+    beforeEach(function() { $('body').append($('<div id="target"/>')); });
+    afterEach(function() { $('#target').remove(); });
     it('throws an exception when no argument hash is passed', function() {
       var thrown;
       try {
@@ -86,7 +83,9 @@ describe('the AntsMarching object\'s', function() {
       new AntsMarching().march({ target: '#target', text: 'blah' });
       expect($('#target').hasClass('marching')).toBe(true);
     });
-    //it('creates a div for each letter in "text"', function() {
-    //});
+    it('creates a child div in "target" for each letter in "text"', function() {
+      new AntsMarching().march({ target: '#target', text: 'blah' });
+      expect($('#target').children().length).toBe(4);
+    });
   });
 });

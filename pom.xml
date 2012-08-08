@@ -13,14 +13,6 @@
     A collection of javascript utilities for doing odd stuff with text.
   </description>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>jquery-amd</artifactId>
-      <version>1.7.1-alpha-1</version>
-      <type>js</type>
-    </dependency>
-  </dependencies>
 	<build>
 		<plugins>
 			<plugin>

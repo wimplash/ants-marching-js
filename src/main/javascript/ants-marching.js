@@ -13,8 +13,13 @@ AntsMarching.prototype.march = function(p) {
   if (typeof p.text === 'undefined' || p.text === null) {
     throw 'expecting "text" parameter of type String';
   }
-  if ($.trim(p.text) === '') {
+  var text = $.trim(p.text);
+  var target = $(p.target);
+  if (text === '') {
     return;
   }
-  $(p.target).addClass('marching');
+  for (var i = 0; i < text.length; i++) {
+    target.append($('<div>' + text[i] + '</div>'));
+  }
+  target.addClass('marching');
 };
