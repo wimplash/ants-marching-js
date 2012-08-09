@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Ants Marching Test</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/mint-choc/jquery-ui.css"/>
+    <style>
+      .demo {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="target_1" class="demo ui-widget ui-corner-all ui-state-highlight"></div>
+    <div id="target_2" class="demo ui-widget ui-corner-all ui-state-highlight"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <script src="src/main/javascript/ants-marching.js"></script>
+    <script>
+      $(function() {
+        new AntsMarching().march({target: '#target_1', text: 'lorem ipsum dolor sit, lorem ipsum dolor sit'});
+      });
+    </script>
+  </body>
+</html>
