@@ -1,7 +1,7 @@
 var AntsMarching = function() {
-	if (!(this instanceof AntsMarching)) {
-		throw 'Remember to use new on constructors!';
-	}
+  if (!(this instanceof AntsMarching)) {
+    throw 'Remember to use new on constructors!';
+  }
 };
 AntsMarching.prototype.march = function(p) {
   if (typeof p === 'undefined' || p === null) {
