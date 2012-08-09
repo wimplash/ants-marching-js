@@ -75,17 +75,50 @@ describe('the AntsMarching object\'s', function() {
       var am = new AntsMarching().march({ target: target, text: ' ' });
       expect($('#target').hasClass('marching')).toBe(false);
     });
-    it('decorates "target" (Node) with a "marching" class', function() {
-      new AntsMarching().march({ target: target, text: 'blah' });
-      expect($(target).hasClass('marching')).toBe(true);
+    describe('applies a "marching" class to "target" when it is of type:', function() {
+      it('String (sizzle selector)', function() {
+        new AntsMarching().march({ target: '#target', text: 'blah' });
+        expect($('#target').hasClass('marching')).toBe(true);
+      });
+      it('Node', function() {
+        var target = $('#target');
+        new AntsMarching().march({ target: target, text: 'blah' });
+        expect(target.hasClass('marching')).toBe(true);
+      });
     });
-    it('decorates "target" (sizzle selector) with a "marching" class', function() {
+    it('applies "overflow: hidden" to "target"', function() {
       new AntsMarching().march({ target: '#target', text: 'blah' });
-      expect($('#target').hasClass('marching')).toBe(true);
+      expect($('#target').css('overflow')).toBe('hidden');
     });
     it('creates a child div in "target" for each letter in "text"', function() {
       new AntsMarching().march({ target: '#target', text: 'blah' });
       expect($('#target').children().length).toBe(4);
+    });
+    describe('each child div', function() {
+      it('should have "position: relative" applied', function() {
+        new AntsMarching().march({ target: '#target', text: 'blah' });
+        $('#target').children().each(function() {
+          expect($(this).css('position')).toBe('relative');
+        });
+      });
+      it('should have "display: inline" applied', function() {
+        new AntsMarching().march({ target: '#target', text: 'blah' });
+        $('#target').children().each(function() {
+          expect($(this).css('display')).toBe('inline');
+        });
+      });
+      it('should have "top: 0" applied', function() {
+        new AntsMarching().march({ target: '#target', text: 'blah' });
+        $('#target').children().each(function() {
+          expect($(this).css('top')).toBe('0px');
+        });
+      });
+      it('should have "left: 0" applied', function() {
+        new AntsMarching().march({ target: '#target', text: 'blah' });
+        $('#target').children().each(function() {
+          expect($(this).css('left')).toBe('0px');
+        });
+      });
     });
   });
 });

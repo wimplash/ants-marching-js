@@ -19,7 +19,15 @@ AntsMarching.prototype.march = function(p) {
     return;
   }
   for (var i = 0; i < text.length; i++) {
-    target.append($('<div>' + text[i] + '</div>'));
+    var node = $('<div>' + text[i] + '</div>');
+    node.css({
+      'position': 'relative',
+      'display': 'inline',
+      'top': 0,
+      'left': 0
+    });
+    target.append(node);
   }
   target.addClass('marching');
+  target.css('overflow', 'hidden');
 };
